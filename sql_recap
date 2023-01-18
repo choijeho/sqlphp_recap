@@ -1,0 +1,28 @@
+mysql -u 사용자이름 -p비밀번호; # mysql -u root -p1234
+mysql -u root -p<enter> Enter password:
+create user choijeho1 identified by 'p0000';
+grant all on db1.tb1 to choijeho1;
+create user choijeho1@localhost identified by 'p0000';
+grant all on db1.tb1 to choijeho1@localhost;
+show databases;
+create database db1;
+use db1;
+select database(); # 현재 사용하고 있는 db 표시
+CREATE TABLE tb1 (id int, name varchar(10), number int);
+SHOW TABLES;
+DESC tb1;
+INSERT INTO tb1 VALUES(1, CHOIJEHO, 20);
+INSERT INTO tb1 (id, name, number) VALUES (2, 'KIM', 30),
+  (3,'HONG',40),(4,'KANG',28);
+SELECT * FROM tb1;
+SELECT id, name FROM tb1;
+# DATETIME 0000-00-00 00:00:00
+ALTER TABLE tb1 MODIFY name VARCHAR(100);
+ALTER TABLE tb1 ADD age INT;
+ALTER TABLE tb1 ADD specialID INT FIRST; # 맨 앞에 컬럼 추가
+ALTER TABLE tb1 ADD inputdatetime DATETIME AFTER id; # id 컬럼 다음에 추가
+ALTER TABLE tb1 CHANGE name fullname VARCHAR(100); # 컬럼 이름 변경
+ALTER TABLE tb1 DROP number; 컬럼 삭제
+CREATE TABLE eigen(a INT PRIMARY KEY, b VARCHAR(10)); # PRIMARY KEY 컬럼에 데이터가 없으면 안됨. 변경은 됨. 
+CREATE TABLE uniq(a INT UNIQUE, b VARCHAR(10)); # NULL 허용, 중복은 안됨.
+CREATE TABLE tb2(a AUTO_INCREMENT); # 자동으로 1씩 증가
